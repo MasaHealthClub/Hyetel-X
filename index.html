@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyetel X | Premium Software & Digital Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#FF2A4B',
+                            redGlow: '#E63946',
+                            darkNavy: '#070B19',
+                            cardBg: '#0F172A',
+                            surface: '#1E293B',
+                            accentBlue: '#00F0FF',
+                            blueGlow: '#1D4ED8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 3s infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%': { boxShadow: '0 0 15px rgba(255, 42, 75, 0.3)' },
+                            '100%': { boxShadow: '0 0 35px rgba(255, 42, 75, 0.7), 0 0 15px rgba(0, 240, 255, 0.4)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Custom Scrollbar and Luxury Gradient Utilities */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070B19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF2A4B;
+        }
+
+        .text-gradient-red-blue {
+            background: linear-gradient(135deg, #FF2A4B 0%, #00F0FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #FFF 0%, #FF2A4B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card-hover:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 42, 75, 0.4);
+            box-shadow: 0 12px 30px -10px rgba(255, 42, 75, 0.25), 0 0 20px -5px rgba(0, 240, 255, 0.15);
+        }
+
+        .red-blue-glow-bg {
+            position: relative;
+        }
+        .red-blue-glow-bg::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 42, 75, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .red-blue-glow-bg::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-brand-darkNavy text-slate-200 font-sans selection:bg-brand-red selection:text-white antialiased overflow-x-hidden">
+
+    <!-- ================= HEADER / NAVBAR ================= -->
+    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-white/5 bg-brand-darkNavy/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#home" class="flex items-center space-x-3 group">
+                <img src="https://hyetelx.com/wp-content/uploads/al_opt_content/IMAGE/hyetelx.com/wp-content/uploads/2026/07/New_Logo_Final_2-01.png.bv_resized_desktop.png.bv.webp" 
+                     alt="Hyetel X Logo" 
+                     class="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                     onerror="this.onerror=null; this.src='https://placehold.co/180x60/0F172A/FF2A4B?text=Hyetel+X';">
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-sm font-medium tracking-wide text-slate-300 hover:text-brand-red transition-colors duration-200">Home</a>
+                <a href="#about" class="text-sm font-medium tracking-wide text-slate-300 hover:text-brand-red transition-colors duration-200">About</a>
+                <a href="#services" class="text-sm font-medium tracking-wide text-slate-300 hover:text-brand-red transition-colors duration-200">Services</a>
+                <a href="#reviews" class="text-sm font-medium tracking-wide text-slate-300 hover:text-brand-red transition-colors duration-200">Reviews</a>
+                <a href="#contact" class="text-sm font-medium tracking-wide text-slate-300 hover:text-brand-red transition-colors duration-200">Contact</a>
+            </nav>
+
+            <!-- CTA Header Button -->
+            <div class="hidden md:block">
+                <a href="#contact" class="relative inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold tracking-wider text-white bg-gradient-to-r from-brand-red to-red-600 rounded-full shadow-lg hover:shadow-red-500/30 transition-all duration-300 transform hover:-translate-y-0.5">
+                    <span>Get Started</span>
+                    <i class="fa-solid font-bold fa-arrow-right ml-2 text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" type="button" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-darkNavy/95 border-b border-slate-800 backdrop-blur-xl px-4 pt-3 pb-6 space-y-4">
+            <a href="#home" class="block py-2 text-base font-medium text-slate-300 hover:text-brand-red border-b border-slate-800/50">Home</a>
+            <a href="#about" class="block py-2 text-base font-medium text-slate-300 hover:text-brand-red border-b border-slate-800/50">About</a>
+            <a href="#services" class="block py-2 text-base font-medium text-slate-300 hover:text-brand-red border-b border-slate-800/50">Services</a>
+            <a href="#reviews" class="block py-2 text-base font-medium text-slate-300 hover:text-brand-red border-b border-slate-800/50">Reviews</a>
+            <a href="#contact" class="block py-2 text-base font-medium text-slate-300 hover:text-brand-red border-b border-slate-800/50">Contact</a>
+            <a href="#contact" class="block w-full text-center py-3 text-sm font-semibold text-white bg-brand-red rounded-xl shadow-lg mt-4">Get Started</a>
+        </div>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden red-blue-glow-bg">
+        <!-- Hero Background Image & Gradient Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://avatars.mds.yandex.net/i?id=1c0d8547b035aa202e2705e42184125785ad713e-5677974-images-thumbs&n=13" 
+                 alt="Luxury Tech Background" 
+                 class="w-full h-full object-cover object-center opacity-25 scale-105 transition-transform duration-1000"
+                 onerror="this.onerror=null; this.src='https://placehold.co/1920x1080/070B19/1E293B?text=Hyetel+X+Technology';">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-darkNavy/70 via-brand-darkNavy/90 to-brand-darkNavy"></div>
+        </div>
+
+        <!-- Ambient Glow Orbs -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-red/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-blueGlow/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full glass-card border border-brand-red/30 mb-8 animate-pulse-glow">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-red animate-ping"></span>
+                <span class="text-xs font-semibold uppercase tracking-widest text-slate-200">Innovating The Digital Frontier</span>
+            </div>
+
+            <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-white mb-6">
+                Redefining Tech Solutions with <br class="hidden sm:inline">
+                <span class="text-gradient-red-blue">Hyetel X Excellence</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-300 font-light leading-relaxed mb-10">
+                Empowering high-growth businesses through tailored custom software architecture, innovative digital marketing strategies, and groundbreaking digital product development.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-red to-red-600 text-white font-semibold text-base shadow-xl shadow-brand-red/25 hover:shadow-brand-red/50 hover:scale-105 transition-all duration-300">
+                    Explore Services <i class="fa-solid fa-arrow-right-long ml-2"></i>
+                </a>
+                <a href="#about" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-slate-200 font-semibold text-base hover:bg-slate-800/80 border border-slate-700 hover:border-brand-accentBlue transition-all duration-300">
+                    Learn More
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-10 border-t border-slate-800/80">
+                <div class="p-4 rounded-xl glass-card">
+                    <p class="font-heading text-3xl font-bold text-gradient-red-blue">99%</p>
+                    <p class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Client Satisfaction</p>
+                </div>
+                <div class="p-4 rounded-xl glass-card">
+                    <p class="font-heading text-3xl font-bold text-white">150+</p>
+                    <p class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Projects Delivered</p>
+                </div>
+                <div class="p-4 rounded-xl glass-card">
+                    <p class="font-heading text-3xl font-bold text-gradient-red-blue">24/7</p>
+                    <p class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Expert Support</p>
+                </div>
+                <div class="p-4 rounded-xl glass-card">
+                    <p class="font-heading text-3xl font-bold text-white">10+</p>
+                    <p class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Years Experience</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= ABOUT SECTION ================= -->
+    <section id="about" class="py-24 bg-brand-darkNavy relative border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- About Visual Frame -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Glow behind image frame -->
+                        <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-brand-red via-brand-accentBlue to-brand-red opacity-30 blur-xl"></div>
+                        
+                        <div class="relative glass-card p-3 rounded-2xl overflow-hidden border border-slate-700">
+                            <img src="https://repository-images.githubusercontent.com/732537861/78b356c4-98a5-4176-b2b7-df09a4d93e1e" 
+                                 alt="About Hyetel X" 
+                                 class="w-full h-auto rounded-xl object-cover hover:scale-105 transition-transform duration-700"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/0F172A/00F0FF?text=Hyetel+X+Innovation';">
+                        </div>
+
+                        <!-- Floating Feature Badge -->
+                        <div class="absolute -bottom-6 -right-6 glass-card p-4 rounded-2xl border border-brand-red/40 hidden sm:flex items-center space-x-3 shadow-2xl animate-float">
+                            <div class="w-10 h-10 rounded-xl bg-brand-red/20 flex items-center justify-center text-brand-red">
+                                <i class="fa-solid fa-microchip text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Pioneering</p>
+                                <p class="text-sm font-bold text-white">Next-Gen Tech Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Text Content -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center space-x-2 text-brand-red font-semibold text-xs tracking-widest uppercase">
+                        <i class="fa-solid fa-cube"></i>
+                        <span>About Hyetel X</span>
+                    </div>
+
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white leading-tight">
+                        Transforming Complex Business Visions Into Modern <span class="text-gradient-red-blue">Digital Realities</span>
+                    </h2>
+
+                    <p class="text-slate-300 text-base leading-relaxed font-light">
+                        At <strong class="text-white font-semibold">Hyetel X</strong>, we merge creative engineering with strategic digital marketing to build future-ready software ecosystems. Our mission is to accelerate business expansion using robust codebases, intuitive UI/UX design, and result-oriented digital marketing strategies.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-brand-red/10 border border-brand-red/30 flex items-center justify-center text-brand-red mt-1 shrink-0">
+                                <i class="fa-solid fa-check text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-semibold text-white">High-Performance Scalability</h4>
+                                <p class="text-sm text-slate-400">Architectures built to accommodate rapid user growth with uncompromised speed and stability.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-brand-accentBlue/10 border border-brand-accentBlue/30 flex items-center justify-center text-brand-accentBlue mt-1 shrink-0">
+                                <i class="fa-solid fa-chart-line text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-semibold text-white">Data-Driven Growth</h4>
+                                <p class="text-sm text-slate-400">Digital marketing strategies fine-tuned to yield maximum return on investment and market influence.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="#contact" class="inline-flex items-center text-sm font-semibold text-brand-red hover:text-white transition-colors duration-200 group">
+                            <span>Connect with our team</span>
+                            <i class="fa-solid fa-chevron-right ml-2 text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SERVICES SECTION ================= -->
+    <section id="services" class="py-24 bg-slate-950 relative red-blue-glow-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-red font-semibold text-xs tracking-widest uppercase">Our Core Expertise</span>
+                <h2 class="font-heading text-3xl sm:text-5xl font-bold text-white mt-2">
+                    Premier Services Tailored for <span class="text-gradient-red-blue">Excellence</span>
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-4">
+                    Explore our comprehensive suite of tech and marketing services designed to scale your operations effortlessly.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Service Card 1 -->
+                <div class="glass-card glass-card-hover rounded-2xl overflow-hidden group flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://www.powerhomebiz.com/wp-content/uploads/2025/12/software-product.png" 
+                                 alt="Software Product Development" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/0F172A/FF2A4B?text=Software+Product+Dev';">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+                            <span class="absolute top-4 right-4 bg-brand-red/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Product</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-heading text-xl font-bold text-white mb-3 group-hover:text-brand-red transition-colors">
+                                Software Product Development
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Turn your product ideas into enterprise-grade web and mobile applications with sleek UX, high security, and modern tech stacks.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <a href="#contact" class="inline-flex items-center text-xs font-bold text-brand-accentBlue hover:text-white uppercase tracking-wider">
+                            Learn More <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="glass-card glass-card-hover rounded-2xl overflow-hidden group flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://sagartech.co.in/blogs/wp-content/uploads/2023/12/Web-Development-6.png" 
+                                 alt="Digital Marketing Services" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/0F172A/00F0FF?text=Digital+Marketing';">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+                            <span class="absolute top-4 right-4 bg-brand-accentBlue/90 text-slate-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Marketing</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-heading text-xl font-bold text-white mb-3 group-hover:text-brand-accentBlue transition-colors">
+                                Digital Marketing Services
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Accelerate brand visibility through SEO, strategic PPC campaigns, conversion rate optimization, and high-converting audience targeting.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <a href="#contact" class="inline-flex items-center text-xs font-bold text-brand-accentBlue hover:text-white uppercase tracking-wider">
+                            Learn More <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="glass-card glass-card-hover rounded-2xl overflow-hidden group flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://sirinsoftware.com/wp-content/uploads/2020/11/2021-01-25-12-47-47.jpg" 
+                                 alt="Custom Software Development Services" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/0F172A/FF2A4B?text=Custom+Software';">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent"></div>
+                            <span class="absolute top-4 right-4 bg-brand-red/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Custom</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-heading text-xl font-bold text-white mb-3 group-hover:text-brand-red transition-colors">
+                                Custom Software Development
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Tailored digital infrastructure, API integrations, and bespoke management tools designed specifically around your unique business workflows.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <a href="#contact" class="inline-flex items-center text-xs font-bold text-brand-accentBlue hover:text-white uppercase tracking-wider">
+                            Learn More <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= REVIEWS SECTION ================= -->
+    <section id="reviews" class="py-24 bg-brand-darkNavy relative border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-red font-semibold text-xs tracking-widest uppercase">Client Testimonials</span>
+                <h2 class="font-heading text-3xl sm:text-5xl font-bold text-white mt-2">
+                    Trusted by <span class="text-gradient-red-blue">Industry Leaders</span>
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-4">
+                    See what our distinguished Pakistani clients say about collaborating with Hyetel X.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Review Card 1 -->
+                <div class="glass-card p-8 rounded-2xl relative flex flex-col justify-between border-l-4 border-l-brand-red">
+                    <div>
+                        <!-- Rating Stars -->
+                        <div class="flex items-center space-x-1 text-amber-400 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic leading-relaxed mb-6">
+                            "Hyetel X completely revamped our corporate software architecture. Their custom solutions significantly optimized our internal workflow efficiency. Outstanding precision and tech support!"
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 pt-4 border-t border-slate-800">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-red to-blue-600 flex items-center justify-center font-bold text-white font-heading text-lg">
+                            MH
+                        </div>
+                        <div>
+                            <h4 class="font-heading text-base font-bold text-white">Muhammad Hamza</h4>
+                            <p class="text-xs text-brand-red">CEO, Hamza Logistics & Tech</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="glass-card p-8 rounded-2xl relative flex flex-col justify-between border-l-4 border-l-brand-accentBlue">
+                    <div>
+                        <div class="flex items-center space-x-1 text-amber-400 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic leading-relaxed mb-6">
+                            "The digital marketing strategies provided by Hyetel X brought us a phenomenal increase in qualified leads. Their team understands the local market dynamics better than anyone."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 pt-4 border-t border-slate-800">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-accentBlue to-indigo-600 flex items-center justify-center font-bold text-white font-heading text-lg">
+                            AM
+                        </div>
+                        <div>
+                            <h4 class="font-heading text-base font-bold text-white">Aisha Malik</h4>
+                            <p class="text-xs text-brand-accentBlue">Managing Director, Malik Ventures</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="glass-card p-8 rounded-2xl relative flex flex-col justify-between border-l-4 border-l-brand-red">
+                    <div>
+                        <div class="flex items-center space-x-1 text-amber-400 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic leading-relaxed mb-6">
+                            "Top-tier product development services. They took our concept from scratch and delivered a sleek, bug-free platform well ahead of schedule. Truly a luxury digital experience!"
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 pt-4 border-t border-slate-800">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-red-500 to-amber-500 flex items-center justify-center font-bold text-white font-heading text-lg">
+                            TC
+                        </div>
+                        <div>
+                            <h4 class="font-heading text-base font-bold text-white">Tariq Chaudhry</h4>
+                            <p class="text-xs text-brand-red">Founder, Chaudhry FinTech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CONTACT SECTION ================= -->
+    <section id="contact" class="py-24 bg-slate-950 relative red-blue-glow-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Information -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-brand-red font-semibold text-xs tracking-widest uppercase">Get In Touch</span>
+                        <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-2">
+                            Let’s Start Your <br><span class="text-gradient-red-blue">Digital Journey</span>
+                        </h2>
+                        <p class="text-slate-400 text-sm mt-4">
+                            Have a project in mind or need expert software guidance? Reach out to Hyetel X today.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Company Name -->
+                        <div class="flex items-center space-x-4 p-4 rounded-xl glass-card">
+                            <div class="w-12 h-12 rounded-xl bg-brand-red/10 border border-brand-red/30 flex items-center justify-center text-brand-red text-xl">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Company</p>
+                                <p class="text-base font-bold text-white">Hyetel X</p>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="flex items-center space-x-4 p-4 rounded-xl glass-card">
+                            <div class="w-12 h-12 rounded-xl bg-brand-accentBlue/10 border border-brand-accentBlue/30 flex items-center justify-center text-brand-accentBlue text-xl">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Phone</p>
+                                <p class="text-base font-bold text-white">+92 300 0000000 / Contact Support</p>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="flex items-center space-x-4 p-4 rounded-xl glass-card">
+                            <div class="w-12 h-12 rounded-xl bg-brand-red/10 border border-brand-red/30 flex items-center justify-center text-brand-red text-xl">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Email Address</p>
+                                <p class="text-base font-bold text-white">info@hyetelx.com</p>
+                            </div>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="flex items-center space-x-4 p-4 rounded-xl glass-card">
+                            <div class="w-12 h-12 rounded-xl bg-brand-accentBlue/10 border border-brand-accentBlue/30 flex items-center justify-center text-brand-accentBlue text-xl">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Location</p>
+                                <p class="text-base font-bold text-white">Lahore, Punjab, Pakistan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7">
+                    <div class="glass-card p-8 sm:p-10 rounded-2xl border border-slate-800 relative">
+                        
+                        <!-- Notification Message Box -->
+                        <div id="form-alert" class="hidden mb-6 p-4 rounded-xl text-sm font-medium"></div>
+
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Your Name</label>
+                                    <input type="text" required placeholder="John Doe" 
+                                           class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-red transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Email Address</label>
+                                    <input type="email" required placeholder="john@example.com" 
+                                           class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-red transition-colors">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Phone Number</label>
+                                <input type="tel" required placeholder="+92 300 1234567" 
+                                       class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-red transition-colors">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Project Message</label>
+                                <textarea rows="4" required placeholder="Tell us about your project or requirements..." 
+                                          class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-red transition-colors resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-red to-red-600 text-white font-bold text-sm tracking-wider uppercase shadow-lg shadow-brand-red/30 hover:shadow-brand-red/50 hover:scale-[1.01] transition-all duration-300">
+                                Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER & GMB MAP ================= -->
+    <footer class="bg-brand-darkNavy pt-16 pb-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12">
+                
+                <!-- Company Info Column -->
+                <div class="lg:col-span-4 space-y-6">
+                    <img src="https://hyetelx.com/wp-content/uploads/al_opt_content/IMAGE/hyetelx.com/wp-content/uploads/2026/07/New_Logo_Final_2-01.png.bv_resized_desktop.png.bv.webp" 
+                         alt="Hyetel X Logo" 
+                         class="h-12 w-auto object-contain"
+                         onerror="this.onerror=null; this.src='https://placehold.co/180x60/0F172A/FF2A4B?text=Hyetel+X';">
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Hyetel X provides premier software engineering and strategic digital marketing solutions to empower growing digital brands worldwide.
+                    </p>
+                    
+                    <!-- Contact Details Summary -->
+                    <div class="space-y-2 text-xs text-slate-300">
+                        <p><i class="fa-solid fa-building text-brand-red mr-2"></i><strong>Company:</strong> Hyetel X</p>
+                        <p><i class="fa-solid fa-envelope text-brand-accentBlue mr-2"></i><strong>Email:</strong> info@hyetelx.com</p>
+                        <p><i class="fa-solid fa-phone text-brand-red mr-2"></i><strong>Phone:</strong> +92 300 0000000</p>
+                        <p><i class="fa-solid fa-location-dot text-brand-accentBlue mr-2"></i><strong>Address:</strong> Lahore, Punjab, Pakistan</p>
+                    </div>
+
+                    <div class="flex space-x-3 pt-2">
+                        <a href="#" class="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-slate-300 hover:text-brand-red hover:border-brand-red transition-colors"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-slate-300 hover:text-brand-accentBlue hover:border-brand-accentBlue transition-colors"><i class="fa-brands fa-twitter text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-slate-300 hover:text-brand-red hover:border-brand-red transition-colors"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-slate-300 hover:text-brand-accentBlue hover:border-brand-accentBlue transition-colors"><i class="fa-brands fa-instagram text-sm"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navigation Quick Links -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h4 class="font-heading text-lg font-bold text-white">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#home" class="text-slate-400 hover:text-brand-red transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-slate-400 hover:text-brand-red transition-colors">About Us</a></li>
+                        <li><a href="#services" class="text-slate-400 hover:text-brand-red transition-colors">Software Services</a></li>
+                        <li><a href="#reviews" class="text-slate-400 hover:text-brand-red transition-colors">Client Reviews</a></li>
+                        <li><a href="#contact" class="text-slate-400 hover:text-brand-red transition-colors">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- GMB Map Embed Section -->
+                <div class="lg:col-span-5 space-y-4">
+                    <h4 class="font-heading text-lg font-bold text-white flex items-center justify-between">
+                        <span>Our Location (GMB Navigation)</span>
+                        <i class="fa-solid fa-map-location-dot text-brand-red"></i>
+                    </h4>
+                    <div class="rounded-xl overflow-hidden glass-card p-1.5 border border-slate-800 shadow-xl">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.3709640619054!2d74.3433629!3d31.5139698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa1f5c9dcaf6f1c23%3A0xfde36c319a517868!2sHyetel%20X!5e0!3m2!1sen!2s!4v1793309456824!5m2!1sen!2s" 
+                                width="100%" 
+                                height="220" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                class="rounded-lg"></iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="pt-8 border-t border-slate-800/80 text-center sm:flex sm:justify-between sm:items-center text-xs text-slate-500">
+                <p>&copy; 2026 Hyetel X. All rights reserved.</p>
+                <div class="flex justify-center space-x-6 mt-4 sm:mt-0">
+                    <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-300">Terms of Service</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Mobile Navigation Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        });
+
+        // Close mobile menu on menu link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
